@@ -11,9 +11,17 @@
 |
 */
 
+use Illuminate\Support\Facades\Notification;
+
 Route::get('/', function () {
 
-    \App\User::find(1)->notify(new \App\Notifications\TaskCompleted());
+//    two way send mail
+//     first way send mail
+//    \App\User::find(1)->notify(new \App\Notifications\TaskCompleted());
+
+//    second way mail send
+    $users = \App\User::find(1);
+    Notification::send($users, new \App\Notifications\TaskCompleted());
     return view('welcome');
 });
 
