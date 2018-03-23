@@ -12,6 +12,8 @@
 */
 
 Route::get('/', function () {
+
+    \App\User::find(1)->notify(new \App\Notifications\TaskCompleted());
     return view('welcome');
 });
 
