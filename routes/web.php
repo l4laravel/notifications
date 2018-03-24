@@ -22,6 +22,7 @@ Route::get('/', function () {
 //    second way mail send
     $users = \App\User::find(1);
     Notification::send($users, new \App\Notifications\TaskCompleted());
+
     return view('welcome');
 });
 
