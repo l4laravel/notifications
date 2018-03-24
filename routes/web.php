@@ -35,6 +35,12 @@ Route::get('/', function () {
     return view('welcome', compact($user));
 });
 
+Route::get('/read',function (){
+
+    Auth::user()->unreadNotifications->markAsRead();
+    return redirect()->back();
+})->name('read');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
