@@ -25,12 +25,12 @@ Route::get('/', function () {
 
     $when = now()->addSecond(10);
 
-    //$users->notify((new TaskCompleted)->delay($when));
+    $user->notify((new TaskCompleted($user)));
 
     // send mail who is not our database
 
-    Notification::route('mail', 'nishadhiman@laravel.com')
-        ->notify(new TaskCompleted($user));
+    /*Notification::route('mail', 'nishadhiman@laravel.com')
+        ->notify(new TaskCompleted($user));*/
 
     return 'send meail';
 });
