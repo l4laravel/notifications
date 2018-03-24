@@ -32,7 +32,7 @@ Route::get('/', function () {
     /*Notification::route('mail', 'nishadhiman@laravel.com')
         ->notify(new TaskCompleted($user));*/
 
-    return 'send meail';
+    return view('welcome', compact($user));
 });
 
 Auth::routes();

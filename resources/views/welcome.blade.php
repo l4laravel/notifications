@@ -79,7 +79,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{$user->name}}
                 </div>
 
                 <div class="links">
