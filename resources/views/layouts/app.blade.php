@@ -48,12 +48,12 @@
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <i class="fa fa-bell"></i>
+                                    <i class="fa fa-bell">  <span class="badge">{{Auth::user()->notifications->count()}}</span></i>
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     @foreach(Auth::user()->notifications as $notification)
-                                     
+
                                         <a class="dropdown-item" href="">
                                             {{$notification->data['data']}}
                                         </a>
