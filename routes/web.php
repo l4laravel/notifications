@@ -21,7 +21,7 @@ Route::get('/', function () {
 //    \App\User::find(1)->notify(new \App\Notifications\TaskCompleted());
 
 //    second way mail send
-    $users = \App\User::find(1);
+    $user = \App\User::find(1);
 
     $when = now()->addSecond(10);
 
@@ -30,9 +30,9 @@ Route::get('/', function () {
     // send mail who is not our database
 
     Notification::route('mail', 'nishadhiman@laravel.com')
-        ->notify(new TaskCompleted);
+        ->notify(new TaskCompleted($user));
 
-    return view('welcome');
+    return 'send meail';
 });
 
 Auth::routes();
