@@ -11,6 +11,7 @@
 |
 */
 
+use App\Notifications\TaskCompleted;
 use Illuminate\Support\Facades\Notification;
 
 Route::get('/', function () {
@@ -21,7 +22,12 @@ Route::get('/', function () {
 
 //    second way mail send
     $users = \App\User::find(1);
-    Notification::send($users, new \App\Notifications\TaskCompleted());
+
+    $when = now()->addSecond(10);
+
+    $users->notify((new TaskCompleted)->delay($when));
+
+
 
     return view('welcome');
 });
